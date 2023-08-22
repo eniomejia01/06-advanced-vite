@@ -1,5 +1,6 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
+import { environmentsComponent } from './source/concepts/01-enviroments';
 
 
 document.querySelector('#app').innerHTML = `
@@ -18,4 +19,9 @@ document.querySelector('#app').innerHTML = `
     </div>
 
   </div>
-`
+`;
+
+const element = document.querySelector('.card');
+
+environmentsComponent( element );
+
