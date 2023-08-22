@@ -8,17 +8,28 @@ import { heroes } from "../data/heroes"
 export const callbacksComponent = ( element ) => {
 
 
-    const id = '5d86371f25a058e5b1c8a65e1';
-    findHero( id, (error, hero) => {
+    const id1 = '5d86371f25a058e5b1c8a65e';
+    const id2 = '5d86371f233c9f2425f16916';
+
+    findHero( id1, (error, hero1) => {
 
         // element.innerHTML = hero?.name || 'No hay heroe'; // Manejo de errores
-        
+
         if( error ){
             element.innerHTML = error;
             return;
         }
 
-        element.innerHTML = hero.name;
+        findHero( id2, (error, hero2) => {
+            if( error ){
+                element.innerHTML = error;
+                return;
+            }
+
+            element.innerHTML = `${ hero1.name} / ${ hero2.name}`;
+
+        })
+
     });
 
 }
