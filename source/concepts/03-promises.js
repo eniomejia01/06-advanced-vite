@@ -6,7 +6,22 @@ import {heroes} from '../data/heroes';
  */
 export const promisesComponent = ( element ) => {
 
+    const renderHero = ( hero ) => {
+        element.innerHTML = hero.name;
+    }
 
+    const renderError = ( error ) => {
+        element.innerHTML = `
+            <h1>Error:</h1>
+            <h3>${ error }</h3>
+        `;
+    }
+
+    const id1 = '5d86371f233c9f2425f16916';
+
+    findHero( id1 )
+        .then( renderHero )
+        .catch( renderError );
 
 }
 
