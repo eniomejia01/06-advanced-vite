@@ -11,6 +11,7 @@ export const asyncComponent = ( element ) => {
     findHero( id1 )
         .then(  name  => element.innerHTML = name )
         .catch( error => element.innerHTML = error)
+
 }
 
 /**
@@ -19,13 +20,18 @@ export const asyncComponent = ( element ) => {
  * @returns {Promise<String>} 
  */
 
+// ! Tener cuidado con el mamejo de errores
+
 const findHero = async( id ) => {
 
     const hero = heroes.find( hero => hero.id === id);
+    if( !hero )
+        throw `Hero with id ${ id } not found`;
 
     return hero.name;
     
 }
+
 
 
 
